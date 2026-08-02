@@ -1,0 +1,23 @@
+generated: '2026-07-21'
+method: searched
+host: https://www.trustpointgps.com
+notes: Site is hosted on Wix, which returns HTTP 400 for unserved /.well-known/
+  paths. No security.txt, OIDC, OAuth metadata, api-catalog, or ai-plugin documents
+  are published. The site DOES publish a Wix-generated /llms.txt (saved at
+  llms/trustpoint-llms.txt) advertising a Site MCP endpoint, and a /robots.txt.
+documents:
+- path: /.well-known/security.txt
+  status: 400
+- path: /.well-known/openid-configuration
+  status: 400
+- path: /.well-known/oauth-authorization-server
+  status: 400
+- path: /.well-known/api-catalog
+  status: 400
+- path: /.well-known/ai-plugin.json
+  status: 400
+- path: /llms.txt
+  status: 200
+  file: ../llms/trustpoint-llms.txt
+- path: /robots.txt
+  status: 200
