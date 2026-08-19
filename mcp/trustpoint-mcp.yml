@@ -9,26 +9,29 @@ server:
   provider: Wix Site MCP
   docs: https://dev.wix.com/docs/develop-websites/articles/get-started/about-the-wix-site-mcp
   authentication: none
-  notes: Platform-provided (Wix) Site MCP endpoint advertised in the site's own
-    llms.txt. Exposes public site content and business details to AI agents; not a
-    first-party TrustPoint product API.
+  notes: Platform-provided (Wix) Site MCP endpoint advertised in the site's own llms.txt. Exposes public
+    site content and business details to AI agents; not a first-party TrustPoint product API.
 tools:
 - name: GetBusinessDetails
-  description: Retrieves business and site details such as timezone, email, phone,
-    and address.
+  description: Retrieves business and site details such as timezone, email, phone, and address.
 - name: SearchInSite
   description: Searches the site for information (searchTerm).
 - name: SearchSiteApiDocs
-  description: Retrieves the API documentation for the Wix business solutions
-    installed on this site (searchTerm).
+  description: Retrieves the API documentation for the Wix business solutions installed on this site (searchTerm).
 - name: GenerateVisitorToken
-  description: Creates a new visitor session and obtains a visitor access token
-    for the site.
+  description: Creates a new visitor session and obtains a visitor access token for the site.
 - name: CallWixSiteAPI
-  description: Calls API methods on the site to perform actions on a visitor's
-    behalf (visitorToken, url, method, body).
+  description: Calls API methods on the site to perform actions on a visitor's behalf (visitorToken, url,
+    method, body).
 - name: ReadFullDocsArticle
-  description: Fetches a complete article from the Wix developer documentation
-    portal (articleUrl).
+  description: Fetches a complete article from the Wix developer documentation portal (articleUrl).
 - name: ReadFullDocsMethodSchema
   description: Fetches the full schema for a Wix API method (articleUrl).
+deployment:
+  mode: remote
+  endpoint: https://www.trustpointgps.com/_api/mcp
+  verified: probed
+  probe: live
+  tools: 9
+  checked: '2026-08-12'
+  source: catalog MCP census
